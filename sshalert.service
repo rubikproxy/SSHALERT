@@ -4,8 +4,8 @@ After=network.target
 StartLimitIntervalSec=0
 
 [Service]
-ExecStart=/usr/bin/python3 /ssh_login_alart/ssh_alert.py
-WorkingDirectory=/var/log/SSH-Alert
+ExecStart=/usr/bin/python3 /SSHALERT/ssh_alert.py
+WorkingDirectory=/SSHALERT/
 Restart=always
 Group=nogroup
 StandardOutput=journal
