@@ -1,0 +1,9 @@
+{
+    "telegram": {
+        "bot_token": "<your_bot_token>",
+        "chat_id": "<your_chat_id>"
+    },
+    "log": {
+        "file_path": "/var/log/auth.log"
+    }
+}

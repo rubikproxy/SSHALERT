@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - SSH Alert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #ffffff;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #3b82f6;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: var(--card-bg);
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin: 1rem 0;
+        }
+
+        .sidebar-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--primary-color);
+        }
+
+        .sidebar-nav i {
+            margin-right: 0.75rem;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+
+        .header {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .content-card p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-card ul li {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-card ul li i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .contact-section a {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .contact-section a:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-logo">SSH Alert Service</div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="Documentation.html"><i class="fas fa-book"></i>Documentation</a></li>
+            <li><a href="Contribute.html"><i class="fas fa-code"></i>Contribute</a></li>
+            <li><a href="Support.html"><i class="fas fa-question-circle"></i>Support</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="header">
+            <h1>Support</h1>
+            <p>We're here to help you get the most out of SSH Alert. Explore resources below or reach out to our support team.</p>
+        </div>
+
+        <div class="content-card">
+            <h3>Getting Started</h3>
+            <p>Here are some steps to get you up and running:</p>
+            <ul>
+                <li><i class="fas fa-book"></i> Read through our <a href="Documentation.html" style="color: var(--accent-color);">Documentation</a> for installation and setup guides.</li>
+                <li><i class="fas fa-play-circle"></i> Watch our video tutorials for a step-by-step walkthrough.</li>
+                <li><i class="fas fa-question-circle"></i> Browse our FAQ section below for common troubleshooting tips.</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>Frequently Asked Questions (FAQs)</h3>
+            <p>Some quick solutions to common issues:</p>
+            <ul>
+                <li><i class="fas fa-network-wired"></i><strong>Issue:</strong> SSH Alert not connecting to server<br><strong>Solution:</strong> Ensure server IP and port are correctly configured.</li>
+                <li><i class="fas fa-bell"></i><strong>Issue:</strong> Notifications not appearing<br><strong>Solution:</strong> Check notification settings and permissions on your device.</li>
+                <li><i class="fas fa-lock"></i><strong>Issue:</strong> Authentication errors<br><strong>Solution:</strong> Verify SSH keys or passwords and try again.</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>Contact Our Support Team</h3>
+            <p>If you can't find the answer, feel free to reach out:</p>
+            <ul>
+                <li><i class="fas fa-envelope"></i> Email: <a href="mailto:hello@vinsanjay.me" style="color: var(--accent-color);">hello@vinsanjay.me</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-section">
+            <h2>We're Here to Help</h2>
+            <p>Our team is dedicated to providing assistance. Reach out for personalized support:</p>
+            <a href="mailto:hello@vinsanjay.me">Contact Support</a>
+        </div>
+    </main>
+</body>
+
+</html>

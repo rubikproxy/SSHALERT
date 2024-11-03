@@ -1,0 +1,119 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          sshalert
+# Required-Start:    $network
+# Required-Stop:     $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: SSH alert script
+# Description:       Starts the SSH alert Python script
+### END INIT INFO
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DAEMON=/usr/bin/python3
+DAEMON_OPTS="/ssh_login_alart/ssh_alert.py"
+NAME=sshalert
+DESC="SSH Alert Service"
+PIDFILE=/var/run/$NAME.pid
+SCRIPTNAME=/etc/init.d/$NAME
+LOG_FILE="/var/log/SSH-Alert/sshalert.log"
+
+check_for_errors() {
+    tail -f "$LOG_FILE" | while read line; do
+        if echo "$line" | grep -qi "ERROR"; then
+            echo "[!] Detected errors in the SSH alert log: $line"
+            exit 1
+        fi
+    done
+}
+
+clear_log_file() {
+    if [ ! -w "$LOG_FILE" ]; then
+        echo "[!] Unable to clear log file. Check permissions for $LOG_FILE."
+    fi
+}
+
+case "$1" in
+    start)
+        echo "[*] Starting $DESC..."
+        check_for_errors &
+
+        if [ ! -f "$DAEMON_OPTS" ]; then
+            echo "[!] Check log for details."
+            exit 1
+        fi
+
+        start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON -- $DAEMON_OPTS
+        if [ $? -ne 0 ]; then
+            echo "[!] Check log for details."
+            exit 1
+        fi
+        echo "[*] $DESC started successfully."
+        ;;
+
+    stop)
+        echo "[*] Stopping $DESC..."
+        clear_log_file
+
+        if [ ! -f $PIDFILE ]; then
+            echo "[!] SSH Alert service not started."
+            exit 1
+        fi
+
+        start-stop-daemon --stop --quiet --pidfile $PIDFILE --retry=TERM/5/KILL/5
+        if [ $? -ne 0 ]; then
+            echo "[!] Check log for details."
+            exit 1
+        fi
+
+        if [ -f $PIDFILE ]; then
+            rm $PIDFILE
+        fi
+        echo "[*] $DESC stopped successfully."
+        ;;
+
+    restart)
+        echo "[*] Restarting $DESC..."
+        clear_log_file
+        if [ -f "$PIDFILE" ]; then
+            start-stop-daemon --stop --quiet --pidfile "$PIDFILE" --retry=TERM/5/KILL/5
+            if [ $? -ne 0 ]; then
+                echo "[!] Failed to stop $DESC. Check logs for details."
+                exit 1
+            fi
+            rm -f "$PIDFILE"
+        else
+            echo "[!] $DESC is not running, but attempting to start."
+        fi
+        start-stop-daemon --start --background --make-pidfile --pidfile "$PIDFILE" --exec "$DAEMON" -- "$DAEMON_OPTS"
+        if [ $? -eq 0 ]; then
+            echo "[*] $DESC started successfully."
+        else
+            echo "[!] Failed to start $DESC. Check logs for details."
+            exit 1
+        fi
+        ;;
+
+    status)
+        if [ -f $PIDFILE ]; then
+            PID=$(cat $PIDFILE)
+            if ps -p $PID > /dev/null; then
+                echo "[*] $DESC is running with PID $PID."
+            else
+                echo "[*] $DESC is not running, but PID file exists."
+                rm $PIDFILE
+                echo "[*] Removed PID file."
+            fi
+        else
+            echo "[*] $DESC is not running."
+        fi
+        ;;
+
+    *)
+        echo "Invalid command: $1"
+        echo "Usage: $SCRIPTNAME {start|stop|restart|status}" >&2
+        exit 3
+        ;;
+esac
+
+exit 0

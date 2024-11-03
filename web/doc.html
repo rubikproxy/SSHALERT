@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH_ALERT Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.0/toastify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.11.0/toastify.min.css">
+    <style>
+        /* General Style */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1E1E1E;
+            color: #EAEAEA;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            animation: fadeIn 0.8s ease-in;
+            overflow-x: hidden;
+        }
+
+        /* Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Header */
+        h1 {
+            color: #FF6B01;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #FF6B01;
+            font-size: 1.75rem;
+            margin-top: 0;
+            font-weight: bold;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #2A2A2A;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #333333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            animation: slideIn 0.6s ease-in-out;
+        }
+        
+        p {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        /* Code and Pre */
+        pre {
+            background-color: #1E1E1E;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Button */
+        .copy-btn {
+            background-color: #FF6B01;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .copy-btn:hover {
+            background-color: #FF8C3D;
+            transform: translateY(-2px);
+        }
+
+        /* Links */
+        a {
+            color: #FF6B01;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #FF8C3D;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #FF6B01;
+            font-size: 0.9em;
+        }
+
+        /* Icon Style */
+        .icon {
+            color: #FF6B01;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SSH_ALERT Project</h1>
+        
+        <div class="section">
+            <h2><i class="fas fa-info-circle icon"></i> Overview</h2>
+            <p>SSH_ALERT is a Python-based monitoring tool designed to enhance server security by sending real-time alerts for SSH login attempts directly to your Telegram account. It serves as a proactive defense against unauthorized access, ensuring that server administrators are notified of potential security breaches.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-cogs icon"></i> Installation</h2>
+            <h3>Prerequisites</h3>
+            <pre><code id="command1">sudo apt install python3 python3-pip rsyslog</code></pre>
+            <button class="copy-btn" data-clipboard-target="#command1">Copy Command</button>
+
+            <h3>Rsyslog Setup</h3>
+            <p>Enable SSH logging to <code>/var/log/auth.log</code>:</p>
+            <pre><code id="command2">
+sudo nano /etc/rsyslog.conf
+# Ensure the following line is uncommented:
+auth,authpriv.* /var/log/auth.log
+
+# Restart Rsyslog
+sudo systemctl restart rsyslog
+            </code></pre>
+            <button class="copy-btn" data-clipboard-target="#command2">Copy Config & Restart</button>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-folder-open icon"></i> Configure SSH_ALERT</h2>
+            <h3>Clone Repository and Setup</h3>
+            <pre><code id="command3">
+git clone https://github.com/rubikproxy/ssh_login_alert.git /ssh_login_alert/
+cd /ssh_login_alert/
+sudo ln -s /ssh_login_alert/sshalert.service /etc/systemd/system/sshalert.service
+sudo ln -s /ssh_login_alert/sshalert /etc/init.d/sshalert
+sudo chmod +x /etc/init.d/sshalert
+            </code></pre>
+            <button class="copy-btn" data-clipboard-target="#command3">Copy Commands</button>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-wrench icon"></i> Configuration</h2>
+            <p>Edit the <code>config.json</code> file to set your Telegram bot token and chat ID:</p>
+            <pre><code id="config">
+{
+  "telegram": {
+    "bot_token": "YOUR_BOT_TOKEN",
+    "chat_id": "YOUR_CHAT_ID"
+  },
+  "log": {
+    "file_path": "/var/log/auth.log"
+  }
+}
+            </code></pre>
+            <button class="copy-btn" data-clipboard-target="#config">Copy Config</button>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-play-circle icon"></i> Usage</h2>
+            <p>To start monitoring SSH login attempts:</p>
+            <pre><code id="start-service">sudo systemctl start sshalert</code></pre>
+            <button class="copy-btn" data-clipboard-target="#start-service">Copy Command</button>
+            <p>Enable on boot:</p>
+            <pre><code id="enable-service">sudo systemctl enable sshalert</code></pre>
+            <button class="copy-btn" data-clipboard-target="#enable-service">Copy Command</button>
+            <p>Check service status:</p>
+            <pre><code id="status-service">sudo systemctl status sshalert</code></pre>
+            <button class="copy-btn" data-clipboard-target="#status-service">Copy Command</button>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-bug icon"></i> Issue Tracker</h2>
+            <p>If you encounter any issues, please report them on our <a href="https://github.com/rubikproxy/ssh_login_alert/issues" target="_blank">GitHub Issues page</a>.</p>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-users icon"></i> Contribute</h2>
+            <p>Your contributions are highly appreciated! Feel free to fork the repository and submit a pull request with your improvements or features.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SSH_ALERT Project. Developed by the SSH_ALERT team.</p>
+    </footer>
+
+    <script>
+        // Initialize ClipboardJS
+        new ClipboardJS('.copy-btn').on('success', function(e) {
+            Toastify({
+                text: "Copied to clipboard!",
+                duration: 2000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "#4CAF50",
+            }).showToast();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+[Unit]
+Description=SSH Login Alert Monitoring
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+ExecStart=/usr/bin/python3 /ssh_login_alart/ssh_alert.py
+WorkingDirectory=/var/log/SSH-Alert
+Restart=always
+Group=nogroup
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sshalert
+Type=simple
+User=rubikproxy
+
+[Install]
+WantedBy=multi-user.target
+

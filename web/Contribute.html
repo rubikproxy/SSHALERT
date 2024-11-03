@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute - SSH Alert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #ffffff;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #3b82f6;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: var(--card-bg);
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin: 1rem 0;
+        }
+
+        .sidebar-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--primary-color);
+        }
+
+        .sidebar-nav i {
+            margin-right: 0.75rem;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+
+        .header {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .content-card p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-card ul li {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-card ul li i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .call-to-action {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .call-to-action h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .call-to-action p {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .call-to-action a {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .call-to-action a:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-logo">SSH Alert Service</div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="Documentation.html"><i class="fas fa-book"></i>Documentation</a></li>
+            <li><a href="Contribute.html"><i class="fas fa-code"></i>Contribute</a></li>
+            <li><a href="Support.html"><i class="fas fa-question-circle"></i>Support</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="header">
+            <h1>Contribute</h1>
+            <p>Your contributions help us improve and expand SSH Alert. Here’s how you can get involved:</p>
+        </div>
+        
+        <div class="content-card">
+            <h3>Ways to Contribute</h3>
+            <p>There are many ways you can contribute to our project:</p>
+            <ul>
+                <li><i class="fas fa-bug"></i>Submit bug reports</li>
+                <li><i class="fas fa-lightbulb"></i>Suggest new features</li>
+                <li><i class="fas fa-file-alt"></i>Improve documentation</li>
+                <li><i class="fas fa-code"></i>Contribute code</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>Contribution Guidelines</h3>
+            <p>Please follow these guidelines when contributing:</p>
+            <ul>
+                <li><i class="fas fa-code-branch"></i>Fork the repository on GitHub.</li>
+                <li><i class="fas fa-git-alt"></i>Create a new branch for your feature or fix.</li>
+                <li><i class="fas fa-pen"></i>Make your changes and commit them with clear messages.</li>
+                <li><i class="fas fa-code-merge"></i>Submit a pull request to our main repository.</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>Frequently Asked Questions (FAQs)</h3>
+            <p>Here are some common questions about contributing:</p>
+            <ul>
+                <li><i class="fas fa-question"></i><strong>Do I need to be an expert to contribute?</strong> No, contributions from all skill levels are welcome!</li>
+                <li><i class="fas fa-user-friends"></i><strong>Can I contribute if I'm not a programmer?</strong> Absolutely! You can help by writing documentation or reporting issues.</li>
+                <li><i class="fas fa-clock"></i><strong>What happens after I submit a pull request?</strong> Our team will review your contribution and provide feedback.</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>Impact of Contributions</h3>
+            <p>Your contributions make a significant impact:</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i>Help us identify and fix bugs faster.</li>
+                <li><i class="fas fa-arrow-up"></i>Enhance features based on user feedback.</li>
+                <li><i class="fas fa-users-cog"></i>Improve the overall user experience through documentation.</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h3>Team Contributions</h3>
+            <p>Meet some of our team members who contribute regularly:</p>
+            <ul>
+                <li><i class="fas fa-user-tie"></i><strong>John Doe:</strong> Core Developer and maintainer of the repository.</li>
+                <li><i class="fas fa-user-edit"></i><strong>Jane Smith:</strong> Documentation Specialist.</li>
+                <li><i class="fas fa-users"></i><strong>Bob Johnson:</strong> Community Engagement Lead.</li>
+            </ul>
+        </div>
+
+        <div class="call-to-action">
+            <h2>Join Us!</h2>
+            <p>If you're interested in contributing, please check out our GitHub repository:</p>
+            <a href="https://github.com/rubikproxy/SSHALERT" target="_blank">View on GitHub</a>
+        </div>
+    </main>
+</body>
+
+</html>

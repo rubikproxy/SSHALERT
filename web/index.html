@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Alert - Project Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #ffffff;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #3b82f6;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: var(--card-bg);
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin: 1rem 0;
+        }
+
+        .sidebar-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--primary-color);
+        }
+
+        .sidebar-nav i {
+            margin-right: 0.75rem;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+
+        .header {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .content-card i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            margin-top: 6rem;
+            background: var(--card-bg);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.5rem;
+        }
+
+        .footer .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .footer .footer-content i {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-logo">SSH Alert Service</div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="Documentation.html"><i class="fas fa-book"></i>Documentation</a></li>
+            <li><a href="Contribute.html"><i class="fas fa-code"></i>Contribute</a></li>
+            <li><a href="Support.html"><i class="fas fa-question-circle"></i>Support</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <img src="./new.svg" alt="SSH Alert Logo" style="width: 50px; height: 50px;">
+                <div>
+                    <span class="version-badge">v1.0.0</span>
+                    <h1>Welcome to SSH Alert Service</h1>
+                    <p>Enhance your server's security with our comprehensive SSH monitoring and alert system.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="content-card">
+                <i class="fas fa-lock"></i>
+                <h3>Secure Your Server</h3>
+                <p>Protect your server from unauthorized access attempts with SSH Alert's real-time monitoring and
+                    customizable notification system.</p>
+            </div>
+            <div class="content-card">
+                <i class="fas fa-book-open"></i>
+                <h3>Learn More</h3>
+                <p>Explore our documentation to discover the full range of features and benefits SSH Alert has to offer.
+                </p>
+            </div>
+            <div class="content-card">
+                <i class="fas fa-users"></i>
+                <h3>Join Our Community</h3>
+                <p>Connect with other users, share knowledge, and get support from our community forum.</p>
+            </div>
+        </div>
+        <div class="content-grid">
+            <div class="content-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>What is SSH Alert?</h3>
+                <p>SSH Alert is a powerful tool designed to monitor SSH access to your server and alert you to
+                    suspicious activities.</p>
+            </div>
+            <div class="content-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Real-time monitoring</li>
+                    <li>Customizable alerts</li>
+                    <li>Detailed logging</li>
+                    <li>User activity tracking</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <i class="fas fa-lock"></i>
+                <h3>Take Control of Your Server's Security</h3>
+                <p>Implement SSH Alert to safeguard your server against unauthorized access and potential threats.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span><i class="fas fa-star"></i> Stars: <span id="star-count">Loading...</span></span>
+            <span><i class="fas fa-code-branch"></i> Forks: <span id="fork-count">Loading...</span></span>
+        </div>
+    </footer>
+
+    <script>
+        async function fetchGitHubStats() {
+            try {
+                const response = await fetch("https://api.github.com/repos/rubikproxy/SSHALERT");
+                if (!response.ok) throw new Error("GitHub API request failed");
+
+                const data = await response.json();
+                document.getElementById("star-count").textContent = data.stargazers_count;
+                document.getElementById("fork-count").textContent = data.forks_count;
+            } catch (error) {
+                console.error("Error fetching GitHub stats:", error);
+                document.getElementById("star-count").textContent = "N/A";
+                document.getElementById("fork-count").textContent = "N/A";
+            }
+        }
+        fetchGitHubStats();
+        setInterval(fetchGitHubStats, 10 * 60 * 1000);
+    </script>
+</body>
+
+</html>

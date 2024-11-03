@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - SSH Alert Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #ffffff;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #3b82f6;
+        }
+        body {
+            background: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: var(--card-bg);
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+        }
+        .sidebar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .sidebar-nav {
+            list-style: none;
+        }
+        .sidebar-nav li {
+            margin: 1rem 0;
+        }
+        .sidebar-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+        .sidebar-nav a:hover {
+            background: var(--primary-color);
+        }
+        .sidebar-nav i {
+            margin-right: 0.75rem;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+        .header {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        .content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .content h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        .content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .content li {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-logo">SSH Alert Service</div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="Documentation.html"><i class="fas fa-book"></i>Documentation</a></li>
+            <li><a href="Contribute.html"><i class="fas fa-code"></i>Contribute</a></li>
+            <li><a href="Support.html"><i class="fas fa-question-circle"></i>Support</a></li>
+        </ul>
+    </nav>
+    <main class="main-content">
+        <div class="header">
+            <h1>Welcome to SSH Alert Service</h1>
+            <p>SSH Alert is designed to enhance the security of your server by SSH login attempts and alerting you to potential unauthorized access. This documentation will guide you through the setup and configuration of the service.</p>
+        </div>
+        <div class="content">
+            <h2>What is SSH Alert Service?</h2>
+            <p>SSH Alert Service is a powerful tool that helps administrators keep track of SSH login attempts on their servers. By Monitering these events, it can identify suspicious activity and help prevent unauthorized access.</p>
+            
+            <h2>What is SSH Alert Monitoring?</h2>
+            <p>SSH Alert involves tracking and analyzing login attempts to your server via the SSH protocol. This service provides notifications when specific conditions are met, such as failed login attempts or logins from unfamiliar IP addresses, allowing you to take immediate action.</p>
+            
+            <h2>Features of SSH Alert</h2>
+            <p>SSH Alert comes with several key features to enhance your server's security:</p>
+            <ul>
+                <li><strong>Real-time Alerts:</strong> Get instant notifications for suspicious login attempts via email or SMS.</li>
+                <li><strong>IP Whitelisting:</strong> Specify trusted IP addresses to reduce false positives.</li>
+                <li><strong>Login History Tracking:</strong> Keep a detailed log of all SSH access attempts for auditing purposes.</li>
+                <li><strong>Configurable Alert Thresholds:</strong> Set your own criteria for triggering alerts based on login attempts.</li>
+                <li><strong>Easy Integration:</strong> Simple installation and configuration process to get you started quickly.</li>
+            </ul>
+
+            <h2>Installation Instructions</h2>
+            <p>To install SSH Alert, follow these steps:</p>
+            <ol>
+                <li>Download the SSH Alert installation package from our website.</li>
+                <li>Extract the package contents to a directory on your server.</li>
+                <li>Run the installation script to configure SSH Alert.</li>
+                <li>Configure your email or SMS notification settings.</li>
+            </ol>
+
+            <h2>Usage Examples</h2>
+            <p>Here are some examples of how you can use SSH Alert:</p>
+            <ul>
+                <li>Monitor SSH login attempts from unknown IP addresses.</li>
+                <li>Track failed login attempts to identify potential security threats.</li>
+                <li>Receive real-time alerts for suspicious activity on your server.</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+            <p>Here are some frequently asked questions about SSH Alert:</p>
+            <ul>
+                <li><strong>Q: How do I configure SSH Alert to send notifications via email?</strong></li>
+                <li>A: To configure email notifications, follow these steps: ...</li>
+                <li><strong>Q: Can I customize the alert thresholds for SSH Alert?</strong></li>
+                <li>A: Yes, you can customize the alert thresholds to suit your needs. ...</li>
+                <li><strong>Q: Is SSH Alert compatible with my server operating system?</strong></li>
+                <li>A: SSH Alert is compatible with most server operating systems, including ...</li>
+            </ul>
+
+            <h2>How Can I Contribute to This Project?</h2>
+            <p>We welcome contributions from the community! Here’s how you can help:</p>
+            <ul>
+                <li><strong>Report Issues:</strong> If you find any bugs or have suggestions for improvements, please report them on our <a href="https://github.com/rubikproxy/SSHALERT/issues"><span style="color: #3b82f6; font-weight: bold;">GitHub Issues page</span></a>.</li>
+                <li><strong>Submit Code:</strong> If you’d like to contribute code, fork the repository, make your changes, and submit a pull request.</li>
+                <li><strong>Documentation Improvements:</strong> Help us enhance our documentation by suggesting edits or adding new content.</li>
+                <li><strong>Spread the Word:</strong> Share SSH Alert with your peers and on social media to help us grow our community.</li>
+            </ul>
+            <p>Thank you for your interest in contributing to the SSH Alert Service!</p>
+        </div>
+    </main>
+</body>
+</html>
