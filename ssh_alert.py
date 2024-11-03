@@ -169,18 +169,23 @@ def check_and_manage_rsyslog():
         logging.error("[!] Please check /var/log/daemon.log and other log files for errors.")
 
 
+path_config = "/SSHALERT/config.json"
+
 try:
-    with open('/home/rubikproxy/developer/rubikproxy-portfolio/Python/API-PRODUCTION/ssh_login_alart/config.json') as config_file:
+    with open(path_config) as config_file:
         config = json.load(config_file)
 except FileNotFoundError:
     logging.error("[!] Configuration file not found. Exiting...")
-    logging.info(f"Loading configuration file from: /ssh_login_alart/config.json")
+    logging.info(f"Expected location: {path_config}")
     exit(1)
 except json.JSONDecodeError:
     logging.error("[!] Error decoding JSON from configuration file. Exiting...")
     exit(1)
 except PermissionError:
     logging.error("[!] Permission denied when accessing the configuration file. Exiting...")
+    exit(1)
+except Exception as e:
+    logging.error(f"[!] An unexpected error occurred: {e}. Exiting...")
     exit(1)
 
 TELEGRAM_TOKEN = config.get('telegram', {}).get('bot_token')
