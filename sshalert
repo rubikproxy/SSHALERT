@@ -11,7 +11,7 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DAEMON=/usr/bin/python3
-DAEMON_OPTS="/ssh_login_alart/ssh_alert.py"
+DAEMON_OPTS="/SSHALERT/ssh_alert.py"
 NAME=sshalert
 DESC="SSH Alert Service"
 PIDFILE=/var/run/$NAME.pid
@@ -85,6 +85,7 @@ case "$1" in
         else
             echo "[!] $DESC is not running, but attempting to start."
         fi
+        check_for_errors
         start-stop-daemon --start --background --make-pidfile --pidfile "$PIDFILE" --exec "$DAEMON" -- "$DAEMON_OPTS"
         if [ $? -eq 0 ]; then
             echo "[*] $DESC started successfully."
