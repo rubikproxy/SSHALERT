@@ -91,15 +91,6 @@ Ensure the following software is installed:
    sudo chmod +x /etc/init.d/sshalert
    ```
 
-### <span style="color: #007ACC;">Verify Installation</span>
-
-To confirm that `sshalert` is running, check the process:
-```bash
-ps aux | grep sshalert
-```
-
----
-
 ## <span style="color: #007ACC;">Configuration</span>
 
 1. **Edit Configuration File**:
@@ -131,6 +122,13 @@ ps aux | grep sshalert
      ```
 
 ---
+### <span style="color: #007ACC;">Verify Installation</span>
+
+To confirm that `sshalert` is running, check the process:
+```bash
+ps aux | grep sshalert
+```
+
 
 ## <span style="color: #007ACC;">Usage</span>
 
@@ -138,7 +136,7 @@ ps aux | grep sshalert
 
 ### <span style="color: #007ACC;">Logging</span>
 
-All alerts are logged to `/var/log/SSH-Alert/sshalert.log` within the SSH_ALERT directory for easy tracking and analysis.
+All alerts are logged to `/var/log/SSH-Alert/sshalert.log` within the SSHALERT directory for easy tracking and analysis.
 
 ---
 
@@ -146,8 +144,6 @@ All alerts are logged to `/var/log/SSH-Alert/sshalert.log` within the SSH_ALERT 
 
 - **Log Checking**: If alerts aren't sent, check `tail -f /var/log/SSH-Alert/sshalert.log` for errors.
 - **Permission Issues**: Run the script with root permissions.
-- **Firewall**: Ensure your firewall allows outgoing connections to Telegram.
-
 ---
 
 ## <span style="color: #007ACC;">Conclusion</span>
