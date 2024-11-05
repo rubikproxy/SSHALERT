@@ -79,13 +79,20 @@ Ensure the following software is installed:
    ```bash
    cd /SSHALERT/
    ```
+3. **Try To Run this script**:
+   ```bash
+   bash /SSHALERT/main.sh
+   ```
+   ```sudo update-rc.d sshalert defaults```
+   
+     <div align="center">OR</div>
 
-3. **Set Up the Systemd Service**:
+4. **Set Up the Systemd Service**:
    ```bash
    sudo ln -s /SSHALERT/sshalert.service /etc/systemd/system/sshalert.service
    ```
 
-4. **Link Init Script and Make Executable**:
+5. **Link Init Script and Make Executable**:
    ```bash
    sudo ln -s /SSHALERT/sshalert /etc/init.d/sshalert
    sudo chmod +x /etc/init.d/sshalert
