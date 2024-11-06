@@ -81,51 +81,26 @@ Ensure the following software is installed:
    ```
 3. **Try To Run this script**:
    ```bash
-   bash /SSHALERT/main.sh
+   bash main.sh
    ```
-   ```sudo update-rc.d sshalert defaults```
-   
-     <div align="center">OR</div>
+##
+- **Enter Your Telegram ```bot_token```**
+- **Enter Your Telegram ```chat_id```**
 
-4. **Set Up the Systemd Service**:
-   ```bash
-   sudo ln -s /SSHALERT/sshalert.service /etc/systemd/system/sshalert.service
-   ```
+## <span style="color: #007ACC;">Usage Command</span>
 
-5. **Link Init Script and Make Executable**:
-   ```bash
-   sudo ln -s /SSHALERT/sshalert /etc/init.d/sshalert
-   sudo chmod +x /etc/init.d/sshalert
-   ```
-
-## <span style="color: #007ACC;">Configuration</span>
-
-1. **Edit Configuration File**:
-   - Open `./config.json` and set up Telegram bot token and chat ID:
-   ```json
-   {
-     "telegram": {
-       "bot_token": "YOUR_BOT_TOKEN",
-       "chat_id": "YOUR_CHAT_ID"
-     },
-     "log": {
-       "file_path": "/var/log/auth.log"
-     }
-   }
-   ```
-
-2. **Service Management**:
+1. **Service Management**:
    - **Start the Service**:
      ```bash
-     sudo systemctl start sshalert
-     ```
-   - **Enable on Boot**:
-     ```bash
-     sudo systemctl enable sshalert
+     sudo service sshalert start
      ```
    - **Check Service Status**:
      ```bash
-     sudo systemctl status sshalert
+     sudo service sshlert status
+     ```
+   - **Restart the Restart**:
+     ```bash
+     sudo service sshlert restart
      ```
 
 ---

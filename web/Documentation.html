@@ -282,45 +282,28 @@
                     </code></pre>
                 </li>
                 <li>
-                    <p>Configuration:</p>
-                    <pre><code class="bash" id="cd-cmd">nano config.json
-                        <i class="fas fa-copy copy-icon" data-clipboard-target="#cd-cmd" title="Copy to clipboard"></i>
-                    </code></pre>
-                </li>
-                
-                <li>
-                    <p>Create a symbolic link for the systemd service:</p>
-                    <pre><code class="bash" id="systemd-cmd">sudo ln -s /SSHALERT/sshalert.service /etc/systemd/system/sshalert.service
-                        <i class="fas fa-copy copy-icon" data-clipboard-target="#systemd-cmd" title="Copy to clipboard"></i>
-                    </code></pre>
-                </li>
-                <li>
-                    <p>Create a symbolic link for the init.d script:</p>
-                    <pre><code class="bash" id="initd-cmd">sudo ln -s /SSHALERT/sshalert /etc/init.d/sshalert
+                    <p>Try To Run this script:</p>
+                    <pre><code class="bash" id="initd-cmd">bash main.sh
                         <i class="fas fa-copy copy-icon" data-clipboard-target="#initd-cmd" title="Copy to clipboard"></i>
                     </code></pre>
                 </li>
+                <p>Enter Your Telegram:- BOT TOKEN</p>
+                <p>Enter Your Telegram:- Chat ID</p>
                 <li>
-                    <p>Make the init.d script executable:</p>
-                    <pre><code class="bash" id="setup-cmd">sudo chmod +x /etc/init.d/sshalert
-                        <i class="fas fa-copy copy-icon" data-clipboard-target="#setup-cmd" title="Copy to clipboard"></i>
-                    </code></pre>
-                </li>
-                <li>
-                    <p>Enable the service to start on boot:</p>
-                    <pre><code class="bash" id="start-cmd">sudo systemctl start sshalert
+                    <p>service to start :</p>
+                    <pre><code class="bash" id="start-cmd">sudo service sshalert start
                         <i class="fas fa-copy copy-icon" data-clipboard-target="#start-cmd" title="Copy to clipboard"></i>
-                    </code></pre>
-                </li>
-                <li>
-                    <p>Start the sshalert service:</p>
-                    <pre><code class="bash" id="enable-cmd">sudo service sshalert start
-                        <i class="fas fa-copy copy-icon" data-clipboard-target="#enable-cmd" title="Copy to clipboard"></i>
                     </code></pre>
                 </li>
                 <li>
                     <p>Verify the Status of sshalert service:</p>
                     <pre><code class="bash" id="enable-cmd">sudo service sshalert status
+                        <i class="fas fa-copy copy-icon" data-clipboard-target="#enable-cmd" title="Copy to clipboard"></i>
+                    </code></pre>
+                </li>
+                <li>
+                    <p>Restart the sshalert service:</p>
+                    <pre><code class="bash" id="enable-cmd">sudo service sshalert restart
                         <i class="fas fa-copy copy-icon" data-clipboard-target="#enable-cmd" title="Copy to clipboard"></i>
                     </code></pre>
                 </li>
@@ -340,7 +323,6 @@
 
 
     <script>
-        // Initialize Clipboard.js
         const clipboard = new ClipboardJS('.copy-icon');
 
         clipboard.on('success', function(e) {

@@ -11,7 +11,7 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DAEMON=/usr/bin/python3
-DAEMON_OPTS="/etc/sshalert/source/main.py"
+DAEMON_OPTS="/SSHALERT/ssh_alert.py"
 NAME=sshalert
 DESC="SSH Alert Service"
 PIDFILE=/var/run/$NAME.pid
