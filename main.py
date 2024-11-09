@@ -193,7 +193,7 @@ def alert_login(user, ip):
 
     last_notified[(user, ip)] = current_time
     message = (
-        f"🔒 <b>SSH Login Successful</b>\n\n"
+        f"🔒 <b>Server Logged in</b>\n\n"
         f"🖥️ <b>Server:</b> <code>{SERVER_NAME}</code>\n"
         f"👤 <b>User:</b> <code>{user}</code>\n"
         f"🌐 <b>IP Address:</b> <code>{ip}</code>\n"
