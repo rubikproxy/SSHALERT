@@ -13,13 +13,13 @@ def create_directory():
     try:
         result = subprocess.run(['bash', '/etc/sshalert/source/Directory.sh'], capture_output=True, text=True)
         if result.returncode == 0:
-            print("Directory setup successful.")
+            logging.info("[*] Directory setup successful.")
             return True
         else:
-            logging.error(f"Failed to set up directory: {result.stderr.strip()}")
+            logging.error(f"[*] Failed to set up directory: {result.stderr.strip()}")
             return False
     except Exception as e:
-        logging.error(f"Error creating directory: {e}")
+        logging.error(f"[*] Error creating directory: {e}")
         return False
 
 
