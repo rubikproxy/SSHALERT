@@ -7,18 +7,19 @@ import logging
 from datetime import datetime, timedelta
 from logging.handlers import RotatingFileHandler
 import subprocess
+import socket
 
 def create_directory():
     try:
         result = subprocess.run(['bash', '/etc/sshalert/source/Directory.sh'], capture_output=True, text=True)
         if result.returncode == 0:
-            logging.info("[*] Directory setup successful.")
+            print("Directory setup successful.")
             return True
         else:
-            logging.error(f"[*] Failed to set up directory: {result.stderr.strip()}")
+            logging.error(f"Failed to set up directory: {result.stderr.strip()}")
             return False
     except Exception as e:
-        logging.error(f"[*] Error creating directory: {e}")
+        logging.error(f"Error creating directory: {e}")
         return False
 
 
@@ -145,10 +146,11 @@ if not TELEGRAM_TOKEN or not CHAT_ID:
     exit(1)
 
 alert_log = []
-alert_limit_time = timedelta(minutes=1)
+alert_limit_time = timedelta(minutes=5)
 last_alert_time = {}
 running = True
 last_notified = {}
+SERVER_NAME = socket.gethostname()
 
 def signal_handler(sig, frame):
     global running
@@ -190,16 +192,17 @@ def alert_login(user, ip):
         return
 
     last_notified[(user, ip)] = current_time
-    message = f"""
-    🚀 SSH-Login Alert 🚀
-    ``` 
-    User: {user}
-    IP: {ip}
-    Time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}
-    ```"""
+    message = (
+        f"🔒 <b>SSH Login Successful</b>\n\n"
+        f"🖥️ <b>Server:</b> <code>{SERVER_NAME}</code>\n"
+        f"👤 <b>User:</b> <code>{user}</code>\n"
+        f"🌐 <b>IP Address:</b> <code>{ip}</code>\n"
+        f"🕒 <b>Timestamp:</b> <i>{current_time.strftime('%Y-%m-%d %H:%M:%S')}</i>\n"
+        "----------------------------------------"
+    )
     send_telegram_message(message)
-    logging.info(f"[*] SSH-Login Successful - User: {user}, IP: {ip}")
-    log_to_file("SSH-Login Successful", f"User: {user}, IP: {ip}")
+    logging.info(f"SSH-Login Successful - Server: {SERVER_NAME}, User: {user}, IP: {ip}")
+    log_to_file("SSH-Login Successful", f"Server: {SERVER_NAME}, User: {user}, IP: {ip}")
 
 def alert_login_failed(user, ip):
     current_time = datetime.now()
@@ -207,21 +210,20 @@ def alert_login_failed(user, ip):
         return
 
     last_notified[(user, ip)] = current_time
-    message = f"""
-    ❗SSH-login Failed Attempt❗
-    ``` 
-    User: {user}
-    IP: {ip}
-    Time: {current_time.strftime('%Y-%m-%d %H:%M:%S')}
-    ```"""
+    message = (
+        f"⚠️ <b>SSH Login Failed Attempt</b>\n\n"
+        f"🖥️ <b>Server:</b> <code>{SERVER_NAME}</code>\n"
+        f"👤 <b>User:</b> <code>{user}</code>\n"
+        f"🌐 <b>IP Address:</b> <code>{ip}</code>\n"
+        f"🕒 <b>Timestamp:</b> <i>{current_time.strftime('%Y-%m-%d %H:%M:%S')}</i>\n"
+        "----------------------------------------"
+    )
     send_telegram_message(message)
-    logging.warning(f"[!] SSH-Login Failed Attempt - User: {user}, IP: {ip}")
-    log_to_file("SSH-Login Failed Attempt", f"User: {user}, IP: {ip}")
-
+    logging.warning(f"SSH-Login Failed Attempt - Server: {SERVER_NAME}, User: {user}, IP: {ip}")
+    log_to_file("SSH-Login Failed Attempt", f"Server: {SERVER_NAME}, User: {user}, IP: {ip}")
 
 def log_to_file(subject, body):
-    logging.info(f"{subject} - {body}")
-
+    logging.info(f"{subject} - Server: {SERVER_NAME}, {body}")
         
 def monitor_log():
     global running
